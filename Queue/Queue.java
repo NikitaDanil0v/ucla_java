@@ -27,7 +27,6 @@ public class Queue<Item> {
     public Item dequeue(){
         Item old_item = (Item) first.getItem();
         QueueElement new_first = first.getNext();
-
         first = new_first;
 
         return old_item;
@@ -36,7 +35,6 @@ public class Queue<Item> {
     public boolean hasNext()  { return current != null; }
 
     public static void main(String argv[]) {
-
         Queue queue = new Queue();
 
         queue.queue("Hello");
@@ -50,7 +48,7 @@ public class Queue<Item> {
                 if (!queue.hasNext()) {
                     System.out.println(queue.dequeue());
 
-                    queue.current = queue.current.getNext();
+                    queue.current = queue.current.getNext(); //iteration through the queue
                 }
             } catch (Exception e) {
                 break;
