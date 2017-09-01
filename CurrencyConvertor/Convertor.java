@@ -20,8 +20,8 @@ public class Convertor {
             {
                 String[] s = in.nextLine().split(delimiter);
 
-                // Doesn't work without SUBSTRING. It seems to me that first element of array has hidden chars.
-                String key = String.valueOf(s[0]).substring(0,3);
+                // Doesn't work without Trim function. It seems to me that first element of array has hidden chars.
+                String key = String.valueOf(s[0]).trim();
                 Float value = Float.valueOf(s[2]);
 
                 h.put(key, value);
