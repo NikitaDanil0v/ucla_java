@@ -20,7 +20,7 @@ public class Convertor {
             {
                 String[] s = in.nextLine().split(delimiter);
 
-                // Doesn't work without Trim function. It seems to me that first element of array has hidden new lines.
+                // Doesn't work without Trim function. It seems to me that first element of array has hidden chars.
                 String key = String.valueOf(s[0]).trim();
                 Float value = Float.valueOf(s[2]);
 
@@ -41,14 +41,24 @@ public class Convertor {
 
             Scanner s = new Scanner(System.in);
 
-            System.out.println("Enter your first currency (ex:USD)");
+            System.out.println("Enter your first currency (ex:AUD)");
             String curr1 = s.next().toUpperCase();
+
+            if(dbCurrency.get(curr1) == null ) {
+                System.err.println(curr1 + " Not found!");
+                System.exit(0);
+            }
 
             System.out.println("Enter amount of " + curr1);
             Integer amt1 = s.nextInt();
 
             System.out.println("Enter your second currency (ex:MXN)");
-            String curr2 = s.next();
+            String curr2 = s.next().toUpperCase();
+
+            if(dbCurrency.get(curr2) == null ) {
+                System.err.println(curr2 + " Not found!");
+                System.exit(0);
+            }
 
             Float cross_course =  dbCurrency.get(curr2) / dbCurrency.get(curr1) ;
             Float amt2 = amt1 * cross_course;
