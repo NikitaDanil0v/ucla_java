@@ -20,7 +20,7 @@ public class Convertor {
             {
                 String[] s = in.nextLine().split(delimiter);
 
-                // Doesn't work without Trim function. It seems to me that first element of array has hidden chars.
+                // Doesn't work without Trim function. It seems to me that first element of array has hidden new lines.
                 String key = String.valueOf(s[0]).trim();
                 Float value = Float.valueOf(s[2]);
 
